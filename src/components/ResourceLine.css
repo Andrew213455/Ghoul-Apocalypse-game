@@ -1,0 +1,13 @@
+.ResourceLine {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ResourceLine h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.ResourceLine .default {
+  width: 100px;
+}
