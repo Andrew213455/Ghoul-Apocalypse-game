@@ -1,0 +1,67 @@
+.AddImprovementDialog {
+  padding: 0px 10px;
+}
+
+.AddImprovementDialog .form {
+  width: 100%;
+}
+
+.AddImprovementDialog h2 {
+  text-align: center;
+}
+
+.AddImprovementDialog label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.AddImprovementDialog .input-selector {
+  width: 200px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.AddImprovementDialog .benefit {
+  display: flex;
+  font-size: 20px;
+}
+
+.AddImprovementDialog .benefit-label {
+  font-weight: bold;
+  margin-right: 50px;
+  width: 50px;
+}
+
+.AddImprovementDialog .cost {
+  display: flex;
+  font-size: 20px;
+}
+
+.AddImprovementDialog .cost-label {
+  font-weight: bold;
+  margin-right: 50px;
+  width: 50px;
+}
+
+.AddImprovementDialog .addImprovementButtons {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.AddImprovementDialog button {
+  width: 90px;
+  padding: 10px;
+  margin: 0px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.AddImprovementDialog button:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+  transition: 0.5s;
+}

@@ -16,11 +16,15 @@ function App() {
         <ResourcesView />
       </div>
       <div className="improvement">
-        <AddImprovementDialog />
+        <div className="add">
+          <AddImprovementDialog />
+        </div>
         <div className="mapContainer">
           <Map />
         </div>
-        <EditImprovementDialog />
+        <div className="edit">
+          <EditImprovementDialog />
+        </div>
       </div>
     </div>
   );

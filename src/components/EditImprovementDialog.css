@@ -1,0 +1,60 @@
+.EditImprovementDialog {
+  padding: 0px 10px;
+  margin: 0;
+}
+
+.EditImprovementDialog p {
+  margin: 10px 0;
+}
+
+.EditImprovementDialog h2 {
+  text-align: center;
+}
+
+.EditImprovementDialog .edit-improvements {
+  display: flex;
+}
+
+.EditImprovementDialog .edit-improvements p {
+  font-size: 20px;
+}
+
+.EditImprovementDialog .edit-label {
+  font-weight: bold;
+  width: 30px;
+  margin-right: 70px;
+}
+
+.EditImprovementDialog .edit-cost {
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.EditImprovementDialog .edit-button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 65px;
+}
+
+.EditImprovementDialog .edit-button {
+  width: 90px;
+  padding: 10px;
+  margin: 0px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+  margin: 10px;
+}
+
+.EditImprovementDialog .edit-button:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.EditImprovementDialog .edit-box {
+  margin-right: 20px;
+}
