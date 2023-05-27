@@ -1,33 +1,84 @@
+import { useEffect, useState } from "react";
 import "./AddImprovementDialog.css";
+import Resources from "../Models/Resources";
+import { costs } from "../utils/cost";
+import Benefit from "../Models/Benefit";
+import { benefit } from "../utils/benefit";
+import Improvement from "../Models/Improvement";
 
-const AddImprovementDialog = () => {
+interface Props {
+  onAdd: (modifySquare: Improvement) => void;
+}
+
+const AddImprovementDialog = ({ onAdd }: Props) => {
+  const [type, setType] = useState("house");
+  const [resource, setResource] = useState<Resources>(costs[0]);
+  const [addBenefit, setAddBenefit] = useState<Benefit>(benefit[0]);
+
+  useEffect(() => {
+    if (type === "house") {
+      setResource(costs[0]);
+    } else if (type === "well") {
+      setResource(costs[1]);
+    } else if (type === "grain-farm") {
+      setResource(costs[2]);
+    } else if (type === "brain-farm") {
+      setResource(costs[3]);
+    } else if (type === "lumber-mill") {
+      setResource(costs[4]);
+    }
+    if (type === "house") {
+      setAddBenefit(benefit[0]);
+    } else if (type === "grain-farm") {
+      setAddBenefit(benefit[1]);
+    } else if (type === "brain-farm") {
+      setAddBenefit(benefit[2]);
+    } else if (type === "lumber-mill") {
+      setAddBenefit(benefit[3]);
+    } else if (type === "well") {
+      setAddBenefit(benefit[4]);
+    }
+  }, [type]);
   return (
     <section className="AddImprovementDialog">
       <h2>Add Improvements</h2>
       <form className="form">
         <label htmlFor="type">Type:</label>
-        <select id="type" className="input-selector">
+        <select
+          id="type"
+          className="input-selector"
+          onChange={(e) => setType(e.target.value)}
+          value={type}
+        >
           <option value="house">House</option>
           <option value="well">Well</option>
-          <option value="grainz">Grainz Farm</option>
-          <option value="brainz">Brainz farm</option>
+          <option value="grain-farm">Grainz Farm</option>
+          <option value="brain-farm">Brainz Farm</option>
+          <option value="lumber-mill">Lumber Mill</option>
         </select>
       </form>
       <div className="benefit">
         <p className="benefit-label">Benefit:</p>
-        <p>5 people</p>
+        <p>
+          {addBenefit.benefitNum} {addBenefit.benefitStr}
+        </p>
       </div>
       <div className="cost">
         <p className="cost-label">Cost:</p>
         <div>
-          <p>5 Lumber</p>
-          <p>5 water</p>
-          <p>5 grain</p>
-          <p>1 sheep</p>
+          <p>{resource.lumber} Lumber</p>
+          <p>{resource.water} Water</p>
+          <p>{resource.grain} Grainz</p>
+          <p>{resource.brain} Brainz</p>
         </div>
       </div>
       <div className="addImprovementButtons">
-        <button className="add-button">Add</button>
+        <button
+          className="add-button"
+          onClick={() => onAdd({ type, level: 1 })}
+        >
+          Add
+        </button>
         <button className="cancel-button">Cancel</button>
       </div>
     </section>

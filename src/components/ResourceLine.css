@@ -4,10 +4,24 @@
 }
 
 .ResourceLine h3 {
-  margin: 0;
+  margin: 0 3px 0 7px;
   padding: 0;
+}
+
+.resourceLine .title-logo i {
+  height: 20px;
 }
 
 .ResourceLine .default {
   width: 100px;
+}
+
+.ResourceLine .title-logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.ResourceLine p {
+  font-size: 20px;
+  margin-left: 40px;
 }

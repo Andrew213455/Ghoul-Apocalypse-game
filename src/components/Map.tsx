@@ -1,39 +1,30 @@
-import { useState } from "react";
 import "./Map.css";
 import Tile from "./Tile";
+import Improvement from "../Models/Improvement";
 
-const Map = () => {
-  const [square, setSquare] = useState([
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-    { type: "", level: 0 },
-  ]);
+interface Prop {
+  improvements: Improvement[];
+  setDisplay: (setCurrentSquare: number) => void;
+  squareArray: Improvement[];
+  currentSquare: number | null;
+}
+
+const Map = ({
+  improvements,
+  setDisplay,
+  squareArray,
+  currentSquare,
+}: Prop) => {
   return (
     <div className="Map">
-      {square.map((box, index) => (
-        <Tile key={index} />
+      {improvements.map((box, index) => (
+        <Tile
+          key={index}
+          setDisplay={() => setDisplay(index)}
+          squareArray={squareArray}
+          currentSquare={currentSquare}
+          index={index}
+        />
       ))}
     </div>
   );
