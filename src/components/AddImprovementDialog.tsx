@@ -7,7 +7,7 @@ import { benefit } from "../utils/benefit";
 import Improvement from "../Models/Improvement";
 
 interface Props {
-  onAdd: (modifySquare: Improvement) => void;
+  onAdd: (modifySquare: Improvement, type: string) => void;
 }
 
 const AddImprovementDialog = ({ onAdd }: Props) => {
@@ -69,13 +69,13 @@ const AddImprovementDialog = ({ onAdd }: Props) => {
           <p>{resource.lumber} Lumber</p>
           <p>{resource.water} Water</p>
           <p>{resource.grain} Grainz</p>
-          <p>{resource.brain} Brainz</p>
+          <p>{resource.brain} zombiez</p>
         </div>
       </div>
       <div className="addImprovementButtons">
         <button
           className="add-button"
-          onClick={() => onAdd({ type, level: 1 })}
+          onClick={() => onAdd({ type, level: 1 }, type)}
         >
           Add
         </button>

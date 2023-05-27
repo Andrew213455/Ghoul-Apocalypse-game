@@ -1,3 +1,11 @@
 .Tile .tile-container {
-    width: 100%;
+  width: 100%;
+}
+
+.Tile .icon {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }

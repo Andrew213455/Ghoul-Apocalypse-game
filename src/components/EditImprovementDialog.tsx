@@ -1,6 +1,10 @@
 import "./EditImprovementDialog.css";
 
-const EditImprovementDialog = () => {
+interface Prop {
+  updateLevel: () => void;
+}
+
+const EditImprovementDialog = ({ updateLevel }: Prop) => {
   return (
     <section className="EditImprovementDialog">
       <div className="edit-title">
@@ -28,7 +32,9 @@ const EditImprovementDialog = () => {
         </div>
       </div>
       <div className="edit-button-container">
-        <button className="edit-button">Upgrade</button>
+        <button className="edit-button" onClick={updateLevel}>
+          Upgrade
+        </button>
         <button className="edit-button">Downgrade</button>
         <button className="edit-button">Remove</button>
         <button className="edit-button">Close</button>

@@ -15,16 +15,16 @@ const Tile = ({ setDisplay, squareArray, currentSquare, index }: Prop) => {
   return (
     <div className="Tile" onClick={() => setDisplay()}>
       {currentSquare !== null && squareArray[index].type === "house" ? (
-        <p>house</p>
+        <i className="fa-solid fa-house icon"></i>
       ) : currentSquare !== null && squareArray[index].type === "well" ? (
-        <p>well</p>
+        <i className="fa-solid fa-oil-well icon"></i>
       ) : currentSquare !== null && squareArray[index].type === "grain-farm" ? (
-        <p>grain farm</p>
+        <i className="fa-solid fa-sun-plant-wilt icon"></i>
       ) : currentSquare !== null && squareArray[index].type === "brain-farm" ? (
-        <p>brain farm</p>
+        <i className="fa-solid fa-industry icon"></i>
       ) : currentSquare !== null &&
         squareArray[index].type === "lumber-mill" ? (
-        <p>lumber mill</p>
+        <i className="fa-solid fa-tree-city icon"></i>
       ) : (
         <p></p>
       )}

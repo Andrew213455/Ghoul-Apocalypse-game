@@ -39,3 +39,12 @@
   border-bottom-right-radius: 10px;
   background-color: burlywood;
 }
+
+.App .zombie {
+  height: 300px;
+  width: 200px;
+  z-index: -1;
+  position: absolute;
+  right: 100px;
+  top: 50px;
+}
