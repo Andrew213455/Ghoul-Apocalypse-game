@@ -70,28 +70,32 @@ const EditImprovementDialog = ({
   // setCostSetBenefit();
   return (
     <section className="EditImprovementDialog">
-      <div className="edit-title">
-        <h2>Edit Improvements</h2>
-      </div>
-      <div className="edit-improvements">
-        <p className="edit-label">Type:</p>
-        <p>{currentSquare !== null && squareArray[currentSquare].type}</p>
-      </div>
-      <div className="edit-improvements">
-        <p className="edit-label">Level:</p>
-        <p>{currentSquare !== null && squareArray[currentSquare].level + 1}</p>
-      </div>
-      <div className="edit-improvements">
-        <p className="edit-label">Benefit:</p>
-        <p>5 zombiez</p>
-      </div>
-      <div className="edit-improvements">
-        <p className="edit-label">Cost:</p>
-        <div className="edit-cost">
-          <p className="edit-box">5 Lumber</p>
-          <p>5 Water</p>
-          <p className="edit-box">5 Grain</p>
-          <p>1 Sheep</p>
+      <div>
+        <div className="edit-title">
+          <h2>Edit Improvements</h2>
+        </div>
+        <div className="edit-improvements">
+          <p className="edit-label">Type:</p>
+          <p>{currentSquare !== null && squareArray[currentSquare].type}</p>
+        </div>
+        <div className="edit-improvements">
+          <p className="edit-label">Level:</p>
+          <p>
+            {currentSquare !== null && squareArray[currentSquare].level + 1}
+          </p>
+        </div>
+        <div className="edit-improvements">
+          <p className="edit-label">Benefit:</p>
+          <p>5 zombiez</p>
+        </div>
+        <div className="edit-improvements">
+          <p className="edit-label">Cost:</p>
+          <div className="edit-cost">
+            <p className="edit-box">5 Lumber</p>
+            <p className="edit-box">5 Water</p>
+            <p className="edit-box">5 Grain</p>
+            <p className="edit-box">1 Sheep</p>
+          </div>
         </div>
       </div>
       <div className="edit-button-container">

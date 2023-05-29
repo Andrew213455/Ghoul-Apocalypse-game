@@ -1,5 +1,7 @@
 .AddImprovementDialog {
   padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .AddImprovementDialog .form {
@@ -21,6 +23,16 @@
   font-size: 20px;
 }
 
+.AddImprovementDialog .top-half {
+  display: flex;
+  flex-direction: row;
+}
+
+.AddImprovementDialog .bottom-half {
+  display: flex;
+  flex-direction: row;
+}
+
 .AddImprovementDialog .benefit {
   display: flex;
   font-size: 20px;
@@ -28,8 +40,13 @@
 
 .AddImprovementDialog .benefit-label {
   font-weight: bold;
-  margin-right: 50px;
+  margin-right: 20px;
   width: 50px;
+}
+
+.AddImprovementDialog .benefit-num {
+  width: 100px;
+  margin-left: 10px;
 }
 
 .AddImprovementDialog .cost {
@@ -39,29 +56,53 @@
 
 .AddImprovementDialog .cost-label {
   font-weight: bold;
-  margin-right: 50px;
+  margin-right: 20px;
   width: 50px;
 }
 
-.AddImprovementDialog .addImprovementButtons {
-  margin-top: 50px;
+.AddImprovementDialog .cost-labels {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.AddImprovementDialog .cost-labels p {
+  margin-right: 15px;
+}
+
+.AddImprovementDialog .addImprovementButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 }
 
 .AddImprovementDialog button {
-  width: 90px;
+  width: 80px;
   padding: 10px;
-  margin: 0px 20px;
   border-radius: 5px;
   border: none;
   background-color: black;
   color: white;
+  margin-right: 20px;
+  margin-top: 11px;
 }
 
 .AddImprovementDialog button:hover {
   background-color: darkgreen;
   transform: scale(1.05);
   transition: 0.5s;
+}
+
+@media only screen and (min-width: 1100px) {
+  .AddImprovementDialog .top-half {
+    flex-direction: column;
+  }
+
+  .AddImprovementDialog .bottom-half {
+    flex-direction: column;
+  }
+
+  .AddImprovementDialog .cost {
+    margin-top: 30px;
+  }
 }

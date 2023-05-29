@@ -131,7 +131,6 @@ function App() {
     updateResources(type);
     setDisplayAddForm(false);
   };
-  console.log(currentSquare);
   const openFormSetCurrentSquare = (index: number) => {
     if (squares[index].type) {
       setDisplayEditForm(true);
@@ -142,8 +141,6 @@ function App() {
     }
     setCurrentSquare(index);
   };
-
-  console.log(squares);
   return (
     <div className="App">
       <div className="title">
@@ -181,6 +178,7 @@ function App() {
           )}
         </div>
       </div>
+      <footer></footer>
     </div>
   );
 }

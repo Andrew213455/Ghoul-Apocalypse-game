@@ -42,44 +42,50 @@ const AddImprovementDialog = ({ onAdd }: Props) => {
   return (
     <section className="AddImprovementDialog">
       <h2>Add Improvements</h2>
-      <form className="form">
-        <label htmlFor="type">Type:</label>
-        <select
-          id="type"
-          className="input-selector"
-          onChange={(e) => setType(e.target.value)}
-          value={type}
-        >
-          <option value="house">House</option>
-          <option value="well">Well</option>
-          <option value="grain-farm">Grainz Farm</option>
-          <option value="brain-farm">Brainz Farm</option>
-          <option value="lumber-mill">Lumber Mill</option>
-        </select>
-      </form>
-      <div className="benefit">
-        <p className="benefit-label">Benefit:</p>
-        <p>
-          {addBenefit.benefitNum} {addBenefit.benefitStr}
-        </p>
+      <div className="top-half">
+        <form className="form">
+          <label htmlFor="type">Type:</label>
+          <select
+            id="type"
+            className="input-selector"
+            onChange={(e) => setType(e.target.value)}
+            value={type}
+          >
+            <option value="house">House</option>
+            <option value="well">Well</option>
+            <option value="grain-farm">Grainz Farm</option>
+            <option value="brain-farm">Brainz Farm</option>
+            <option value="lumber-mill">Lumber Mill</option>
+          </select>
+        </form>
       </div>
-      <div className="cost">
-        <p className="cost-label">Cost:</p>
+      <div className="bottom-half">
         <div>
-          <p>{resource.lumber} Lumber</p>
-          <p>{resource.water} Water</p>
-          <p>{resource.grain} Grainz</p>
-          <p>{resource.brain} zombiez</p>
+          <div className="benefit">
+            <p className="benefit-label">Benefit:</p>
+            <p className="benefit-num">
+              {addBenefit.benefitNum} {addBenefit.benefitStr}
+            </p>
+          </div>
+          <div className="addImprovementButtons">
+            <button
+              className="add-button"
+              onClick={() => onAdd({ type, level: 1 }, type)}
+            >
+              Add
+            </button>
+            <button className="cancel-button">Cancel</button>
+          </div>
         </div>
-      </div>
-      <div className="addImprovementButtons">
-        <button
-          className="add-button"
-          onClick={() => onAdd({ type, level: 1 }, type)}
-        >
-          Add
-        </button>
-        <button className="cancel-button">Cancel</button>
+        <div className="cost">
+          <p className="cost-label">Cost:</p>
+          <div className="cost-labels">
+            <p>{resource.lumber} Lumber</p>
+            <p>{resource.water} Water</p>
+            <p>{resource.grain} Grainz</p>
+            <p>{resource.brain} zombiez</p>
+          </div>
+        </div>
       </div>
     </section>
   );
