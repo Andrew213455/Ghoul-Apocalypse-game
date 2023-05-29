@@ -14,7 +14,7 @@ function App() {
   const [displayAddForm, setDisplayAddForm] = useState(false);
   const [displayEditForm, setDisplayEditForm] = useState(false);
   const [resourceLine, setResourceLine] = useState<ResourcesModel>({
-    house: 2,
+    house: 4,
     lumberMill: 5,
     grainFarm: 5,
     well: 5,

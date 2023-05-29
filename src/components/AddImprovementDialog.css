@@ -67,7 +67,9 @@
 }
 
 .AddImprovementDialog .cost-labels p {
+  margin: 0;
   margin-right: 15px;
+  margin-top: 20px;
 }
 
 .AddImprovementDialog .addImprovementButtons {

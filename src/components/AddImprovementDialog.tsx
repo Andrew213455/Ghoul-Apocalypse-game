@@ -83,7 +83,8 @@ const AddImprovementDialog = ({ onAdd }: Props) => {
             <p>{resource.lumber} Lumber</p>
             <p>{resource.water} Water</p>
             <p>{resource.grain} Grainz</p>
-            <p>{resource.brain} zombiez</p>
+            <p>{resource.brain} brainz</p>
+            <p>{1} zombie</p>
           </div>
         </div>
       </div>

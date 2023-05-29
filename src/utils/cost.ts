@@ -29,9 +29,9 @@ export const costs = [
   },
   {
     name: "lumber-mill",
-    lumber: 2,
-    water: 1,
-    grain: 1,
+    lumber: 0,
+    water: 0,
+    grain: 0,
     brain: 1,
   },
 ];
