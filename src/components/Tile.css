@@ -3,9 +3,14 @@
 }
 
 .Tile .icon {
-  font-size: 50px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.Tile.selected {
+  border: 2px solid white;
+  transition: 0.2s;
 }

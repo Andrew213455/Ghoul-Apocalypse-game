@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Map from "./components/Map";
 import AddImprovementDialog from "./components/AddImprovementDialog";
@@ -11,16 +11,15 @@ import { benefit } from "./utils/benefit";
 import zombie from "./images/zombienew.png";
 
 function App() {
-  const [display, setDisplay] = useState(false);
+  const [displayAddForm, setDisplayAddForm] = useState(false);
+  const [displayEditForm, setDisplayEditForm] = useState(false);
   const [resourceLine, setResourceLine] = useState<ResourcesModel>({
-    house: 0,
+    house: 2,
     lumberMill: 5,
     grainFarm: 5,
     well: 5,
     brainFarm: 1,
   });
-  const [addBenefit, setAddBenefit] = useState(benefit[0]);
-  const [addCost, setAddCost] = useState(costs[0]);
   const [squares, setSquares] = useState<Improvement[]>([
     { type: "", level: 0 },
     { type: "", level: 0 },
@@ -68,55 +67,59 @@ function App() {
       console.log("hello");
       setResourceLine((prev) => {
         const copy = { ...prev };
-        copy.house = copy.house + addBenefit.benefitNum;
-        copy.lumberMill = copy.lumberMill - addCost.lumber;
-        copy.grainFarm = copy.grainFarm - addCost.grain;
-        copy.well = copy.well - addCost.water;
-        copy.brainFarm = copy.brainFarm - addCost.brain;
+        copy.house = copy.house + benefit[0].benefitNum;
+        copy.lumberMill = copy.lumberMill - costs[0].lumber;
+        copy.grainFarm = copy.grainFarm - costs[0].grain;
+        copy.well = copy.well - costs[0].water;
+        copy.brainFarm = copy.brainFarm - costs[0].brain;
         return copy;
       });
-      // } else if (
-      //   currentSquare !== null &&
-      //   squares[currentSquare].type === "well"
-      // ) {
-      //   setAddBenefit(benefit[4]);
-      //   setAddCost(costs[1]);
-      //   resourceLine[3].amount = resourceLine[3].amount + addBenefit.benefitNum;
-      //   resourceLine[1].amount = resourceLine[1].amount - addCost.lumber;
-      //   resourceLine[2].amount = resourceLine[2].amount - addCost.grain;
-      //   resourceLine[4].amount = resourceLine[4].amount - addCost.brain;
-      // } else if (
-      //   currentSquare !== null &&
-      //   squares[currentSquare].type === "grain-farm"
-      // ) {
-      //   setAddBenefit(benefit[1]);
-      //   setAddCost(costs[2]);
-      //   resourceLine[2].amount = resourceLine[2].amount + addBenefit.benefitNum;
-      //   resourceLine[1].amount = resourceLine[1].amount - addCost.lumber;
-      //   resourceLine[3].amount = resourceLine[3].amount - addCost.water;
-      //   resourceLine[4].amount = resourceLine[4].amount - addCost.brain;
-      // } else if (
-      //   currentSquare !== null &&
-      //   squares[currentSquare].type === "brain-farm"
-      // ) {
-      //   setAddBenefit(benefit[2]);
-      //   setAddCost(costs[3]);
-      //   resourceLine[4].amount = resourceLine[4].amount - addBenefit.benefitNum;
-      //   resourceLine[1].amount = resourceLine[1].amount - addCost.lumber;
-      //   resourceLine[2].amount = resourceLine[2].amount - addCost.grain;
-      //   resourceLine[3].amount = resourceLine[3].amount - addCost.water;
-      // } else if (
-      //   currentSquare !== null &&
-      //   squares[currentSquare].type === "lumber-mill"
-      // ) {
-      //   setAddBenefit(benefit[3]);
-      //   setAddCost(costs[4]);
-      //   resourceLine[1].amount = addBenefit.benefitNum;
-      //   resourceLine[2].amount = resourceLine[2].amount - addCost.grain;
-      //   resourceLine[3].amount = resourceLine[3].amount - addCost.water;
-      //   resourceLine[4].amount = resourceLine[4].amount - addCost.brain;
+    } else if (currentSquare !== null && type === "well") {
+      console.log(costs[1]);
+      console.log(benefit[4]);
+      setResourceLine((prev) => {
+        const copy = { ...prev };
+        copy.well = copy.well + benefit[4].benefitNum;
+        copy.lumberMill = copy.lumberMill - costs[1].lumber;
+        copy.grainFarm = copy.grainFarm - costs[1].grain;
+        copy.house = copy.house - costs[1].brain; // might need to fix this?? i think it subtracts the same amount as if we had a people/ zombie resource line anyways idk
+        copy.brainFarm = copy.brainFarm - costs[1].brain;
+        return copy;
+      });
+    } else if (currentSquare !== null && type === "grain-farm") {
+      setResourceLine((prev) => {
+        const copy = { ...prev };
+        copy.grainFarm = copy.grainFarm + benefit[1].benefitNum;
+        copy.lumberMill = copy.lumberMill - costs[2].lumber;
+        copy.well = copy.well - costs[2].water;
+        copy.house = copy.house - costs[2].brain; // same thing
+        copy.brainFarm = copy.brainFarm - costs[2].brain;
+        return copy;
+      });
+    } else if (currentSquare !== null && type === "brain-farm") {
+      setResourceLine((prev) => {
+        const copy = { ...prev };
+        copy.brainFarm = copy.brainFarm + benefit[2].benefitNum;
+        copy.lumberMill = copy.lumberMill - costs[3].lumber;
+        copy.well = copy.well - costs[3].water;
+        copy.house = copy.house - costs[3].brain; // same thing
+        copy.grainFarm = copy.grainFarm - costs[3].grain;
+        return copy;
+      });
+    } else if (currentSquare !== null && type === "lumber-mill") {
+      setResourceLine((prev) => {
+        const copy = { ...prev };
+        copy.lumberMill = copy.lumberMill + benefit[3].benefitNum;
+        copy.well = copy.well - costs[4].water;
+        copy.grainFarm = copy.grainFarm - costs[4].grain;
+        copy.brainFarm = copy.brainFarm - costs[4].brain;
+        copy.house = copy.house - costs[4].brain;
+        return copy;
+      });
     }
+    setDisplayEditForm(false);
   };
+
   const modifySquare = (modifySquare: Improvement, type: string): void => {
     if (currentSquare !== null) {
       setSquares((prev) => [
@@ -126,11 +129,17 @@ function App() {
       ]);
     }
     updateResources(type);
-    setDisplay(false);
+    setDisplayAddForm(false);
   };
   console.log(currentSquare);
   const openFormSetCurrentSquare = (index: number) => {
-    setDisplay(true);
+    if (squares[index].type) {
+      setDisplayEditForm(true);
+      setDisplayAddForm(false);
+    } else {
+      setDisplayAddForm(true);
+      setDisplayEditForm(false);
+    }
     setCurrentSquare(index);
   };
 
@@ -150,7 +159,9 @@ function App() {
       </div>
       <div className="improvement">
         <div className="add">
-          {display === true && <AddImprovementDialog onAdd={modifySquare} />}
+          {displayAddForm === true && (
+            <AddImprovementDialog onAdd={modifySquare} />
+          )}
         </div>
         <div className="mapContainer">
           <Map
@@ -161,7 +172,13 @@ function App() {
           />
         </div>
         <div className="edit">
-          <EditImprovementDialog updateLevel={updateLevel} />
+          {displayEditForm === true && (
+            <EditImprovementDialog
+              updateLevel={updateLevel}
+              squareArray={squares}
+              currentSquare={currentSquare}
+            />
+          )}
         </div>
       </div>
     </div>

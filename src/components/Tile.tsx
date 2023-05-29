@@ -13,18 +13,31 @@ const Tile = ({ setDisplay, squareArray, currentSquare, index }: Prop) => {
   // console.log(squareArray[currentSquare].type);
 
   return (
-    <div className="Tile" onClick={() => setDisplay()}>
+    <div
+      className={`Tile${currentSquare === index ? " selected" : ""}`}
+      onClick={() => setDisplay()}
+    >
       {currentSquare !== null && squareArray[index].type === "house" ? (
-        <i className="fa-solid fa-house icon"></i>
+        <i className="fa-solid fa-house icon">
+          <p>{squareArray[index].level}</p>
+        </i>
       ) : currentSquare !== null && squareArray[index].type === "well" ? (
-        <i className="fa-solid fa-oil-well icon"></i>
+        <i className="fa-solid fa-oil-well icon">
+          <p>{squareArray[index].level}</p>
+        </i>
       ) : currentSquare !== null && squareArray[index].type === "grain-farm" ? (
-        <i className="fa-solid fa-sun-plant-wilt icon"></i>
+        <i className="fa-solid fa-sun-plant-wilt icon">
+          <p>{squareArray[index].level}</p>
+        </i>
       ) : currentSquare !== null && squareArray[index].type === "brain-farm" ? (
-        <i className="fa-solid fa-industry icon"></i>
+        <i className="fa-solid fa-industry icon">
+          <p>{squareArray[index].level}</p>
+        </i>
       ) : currentSquare !== null &&
         squareArray[index].type === "lumber-mill" ? (
-        <i className="fa-solid fa-tree-city icon"></i>
+        <i className="fa-solid fa-tree-city icon">
+          <p>{squareArray[index].level}</p>
+        </i>
       ) : (
         <p></p>
       )}
