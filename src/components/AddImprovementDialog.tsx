@@ -8,13 +8,13 @@ import Improvement from "../Models/Improvement";
 
 interface Props {
   onAdd: (modifySquare: Improvement, type: string) => void;
+  cancel: () => void;
 }
 
-const AddImprovementDialog = ({ onAdd }: Props) => {
+const AddImprovementDialog = ({ onAdd, cancel }: Props) => {
   const [type, setType] = useState("house");
   const [resource, setResource] = useState<Resources>(costs[0]);
   const [addBenefit, setAddBenefit] = useState<Benefit>(benefit[0]);
-
   useEffect(() => {
     if (type === "house") {
       setResource(costs[0]);
@@ -74,7 +74,9 @@ const AddImprovementDialog = ({ onAdd }: Props) => {
             >
               Add
             </button>
-            <button className="cancel-button">Cancel</button>
+            <button className="cancel-button" onClick={cancel}>
+              Cancel
+            </button>
           </div>
         </div>
         <div className="cost">
@@ -83,8 +85,8 @@ const AddImprovementDialog = ({ onAdd }: Props) => {
             <p>{resource.lumber} Lumber</p>
             <p>{resource.water} Water</p>
             <p>{resource.grain} Grainz</p>
-            <p>{resource.brain} brainz</p>
-            <p>{1} zombie</p>
+            <p>{resource.brain} Unturned</p>
+            <p>{1} Zombie</p>
           </div>
         </div>
       </div>

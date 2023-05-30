@@ -1,27 +1,41 @@
 .ResourceLine {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .ResourceLine h3 {
   margin: 0 3px 0 7px;
   padding: 0;
+  padding-top: 10px;
+  font-size: 16px;
 }
 
-.resourceLine .title-logo i {
-  height: 20px;
+.ResourceLine .margin {
+  margin-left: 10px;
 }
 
 .ResourceLine .default {
-  width: 100px;
+  width: 150px;
+  background-image: url(/src/images/woodensign.jpg);
+  height: 75px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .ResourceLine .title-logo {
   display: flex;
   flex-direction: row;
+  padding-top: 10px;
+}
+
+.ResourceLine .logo {
+  margin-top: 10px;
 }
 
 .ResourceLine p {
   font-size: 20px;
+  margin: 0;
   margin-left: 40px;
 }

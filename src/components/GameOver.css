@@ -1,0 +1,46 @@
+.GameOver {
+  z-index: 10;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GameOver .gameOverDiv {
+  z-index: 10;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.GameOver .gameOverDiv h2 {
+  -webkit-text-stroke: 0.4px red;
+  font-size: 50px;
+  font-family: "Nosifer", cursive;
+}
+
+.GameOver button {
+  background-color: black;
+  color: red;
+  padding: 10px 40px;
+  border: none;
+  font-family: "Nosifer", cursive;
+}
+
+.GameOver button:hover {
+  background-color: red;
+  color: black;
+  -webkit-text-stroke: 0.4px black;
+  transform: scale(1.05);
+  transition: 1s;
+  font-family: "Nosifer", cursive;
+}

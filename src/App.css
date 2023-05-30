@@ -1,11 +1,42 @@
+.App body,
+.App h1 {
+  margin: 0;
+  -webkit-text-stroke: 0.4px red;
+  font-size: 36px;
+  font-family: "Nosifer", cursive;
+}
+
+.App {
+  background-image: url(/src/images/enchanted-forrest.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .App .title {
   text-align: center;
+  padding: 20px;
+}
+
+.App .resourceViewContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .App .resourceView {
   display: flex;
+  width: 500px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   justify-content: center;
   align-items: center;
+  background-image: url(/src/images/woodpicketfence.jpg);
+  color: black;
+  border-bottom: 1px solid black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-bottom: 40px;
 }
 
 .App .improvement {
@@ -22,24 +53,43 @@
   align-items: center;
   width: 500px;
   height: 500px;
+  z-index: 1;
   /* box-sizing: border-box; */
 }
 .App .add {
   width: 502px;
   border: 1px solid black;
-  height: 250px;
-  background-color: burlywood;
+  height: 0px;
+  background-image: url(/src/images/betterwoodgrain.jpg);
+  background-size: cover;
   box-sizing: border-box;
+  position: relative;
+  transition: height 2s;
+}
+
+.App .clicked {
+  bottom: 0px;
+  height: 250px;
 }
 
 .App .edit {
   width: 502px;
   border: 1px solid black;
   height: 250px;
+  bottom: 300px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: burlywood;
+  background-image: url(/src/images/betterwoodgrain.jpg);
+  background-position: right;
+  background-size: cover;
   box-sizing: border-box;
+  position: relative;
+  transition: bottom 2s;
+}
+
+.App .clickedEdit {
+  height: 250px;
+  bottom: 0px;
 }
 
 .App .zombie {
@@ -55,18 +105,32 @@
   .App .improvement {
     flex-direction: row;
   }
+
   .App .edit {
     width: 300px;
     height: 500px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 0;
+    right: 300px;
+    transition: right 2s ease-in-out;
+    bottom: 0;
   }
 
   .App .add {
+    left: 300px;
+    transition: left 2s ease-in-out;
     width: 300px;
     height: 500px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
+  }
+
+  .App .clickedEdit {
+    right: 0px;
+  }
+
+  .App .clicked {
+    left: 0px;
   }
 }

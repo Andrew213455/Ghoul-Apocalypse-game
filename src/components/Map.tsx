@@ -7,6 +7,7 @@ interface Prop {
   setDisplay: (setCurrentSquare: number) => void;
   squareArray: Improvement[];
   currentSquare: number | null;
+  editType: (type: string) => void;
 }
 
 const Map = ({
@@ -14,7 +15,11 @@ const Map = ({
   setDisplay,
   squareArray,
   currentSquare,
+  editType,
 }: Prop) => {
+  if (currentSquare !== null) {
+    editType(squareArray[currentSquare].type);
+  }
   return (
     <div className="Map">
       {improvements.map((box, index) => (

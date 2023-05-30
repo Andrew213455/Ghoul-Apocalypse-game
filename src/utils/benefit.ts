@@ -14,7 +14,7 @@ export const benefit: Benefit[] = [
   {
     name: "brain-farm",
     benefitNum: 5,
-    benefitStr: "Brainz",
+    benefitStr: "Unturned",
   },
   {
     name: "lumber-mill",

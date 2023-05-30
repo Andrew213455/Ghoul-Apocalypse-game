@@ -2,6 +2,12 @@
   padding: 0px 10px;
   margin: 0;
   display: flex;
+  position: relative;
+  transition: height 2s;
+}
+
+.EditImprovementDialog .clickedEdit {
+  height: 250px;
 }
 
 .EditImprovementDialog p {

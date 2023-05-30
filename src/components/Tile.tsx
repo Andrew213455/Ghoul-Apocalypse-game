@@ -14,7 +14,7 @@ const Tile = ({ setDisplay, squareArray, currentSquare, index }: Prop) => {
 
   return (
     <div
-      className={`Tile${currentSquare === index ? " selected" : ""}`}
+      className={`Tile${currentSquare === index ? "  selected" : ""}`}
       onClick={() => setDisplay()}
     >
       {currentSquare !== null && squareArray[index].type === "house" ? (
